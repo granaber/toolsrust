@@ -1,3 +1,5 @@
 src
 packege-lock.json
 Cargo.*
+target
+**/node_modules

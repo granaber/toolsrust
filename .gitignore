@@ -4,3 +4,5 @@ target
 npm-debug.log*
 packege-lock.json
 src
+package-lock.*
+package-lock.json
