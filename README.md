@@ -24,13 +24,13 @@ Install toolrust with npm
 ## Usage/Examples
 
 ```javascript
-import {random,countspace} from 'toolrust'
+const tr = require('toolrust')
 
 
-const numberRandom = random(0,100) // 
+const numberRandom = tr.random(0,100) // 
 console.log({numberRandom}) // numberRandom : 23
 
-const countSpace = countspace('The movie is best : Start Wars')
+const countSpace = tr.cspace('The movie is best : Start Wars')
 console.log({countSpace}) // countSpace : 6
 
 
