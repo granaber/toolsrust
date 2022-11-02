@@ -1,14 +1,21 @@
 {
   "name": "toolrust",
-  "version": "0.1.8",
+  "version": "0.1.13.2",
   "description": "Tools for NodeJS",
-  "main": "index.node",
+  "main": "index.js",
   "scripts": {
-    "build-cargo": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
-    "build-debug": "npm run build-cargo --",
-    "build-release": "npm run build-cargo -- --release",
-    "install-cargo": "npm run build-release",
-    "test": "cargo test"
+    "build-cargo-gnu": "cargo-cp-artifact -nc index.gnu.node -- cargo build --target=x86_64-unknown-linux-gnu --message-format=json-render-diagnostics",
+    "build-release-gnu": "npm run build-cargo-gnu -- --release",
+    "build-debug-gnu": "npm run build-cargo-gnu --",
+    "build-cargo-darwin": "cargo-cp-artifact -nc index.darwin.node -- cargo build --target=x86_64-apple-darwin --message-format=json-render-diagnostics",
+    "build-release-darwin": "npm run build-cargo-darwin -- --release",
+    "build-debug-darwin": "npm run build-cargo-darwin --",
+    "build-cargo-win": "cargo-cp-artifact -nc index.win.node -- cargo build --target=x86_64-pc-windows-gnu --message-format=json-render-diagnostics",
+    "build-release-win": "npm run build-cargo-win -- --release",
+    "build-debug-win": "npm run build-cargo-win --",
+    "install-cargo": "npm run build-release-gnu && npm run build-release-darwin && npm run build-release-win",
+    "test": "cargo test",
+    "postinstall": "node ./postinstall.js"
   },
   "author": "zellathor Angel Granadillo ",
   "license": "ISC",
