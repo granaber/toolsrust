@@ -5,11 +5,12 @@ const { exit } = require('process')
 
 const osmain = os.platform()
 
-const [DARWIN, GNU, WIN] = ['darwin', 'linux', 'win32']
+const [DARWIN, GNU, WIN, ARM64] = ['darwin', 'linux', 'win32', 'aarch64']
 const osdelete = {
   [DARWIN]: ['gnu', 'win'],
   [GNU]: ['darwin', 'win'],
-  [WIN]: ['darwin', 'gnu']
+  [WIN]: ['darwin', 'gnu'],
+  [ARM64]: 'aarch64'
 }
 const path_install = require.resolve('toolrust')
 const directory = path.dirname(path_install)

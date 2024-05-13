@@ -1,6 +1,6 @@
 {
   "name": "toolrust",
-  "version": "0.1.13.2",
+  "version": "0.1.13.4",
   "description": "Tools for NodeJS",
   "main": "index.js",
   "scripts": {
@@ -13,13 +13,16 @@
     "build-cargo-win": "cargo-cp-artifact -nc index.win.node -- cargo build --target=x86_64-pc-windows-gnu --message-format=json-render-diagnostics",
     "build-release-win": "npm run build-cargo-win -- --release",
     "build-debug-win": "npm run build-cargo-win --",
-    "install-cargo": "npm run build-release-gnu && npm run build-release-darwin && npm run build-release-win",
+    "build-cargo-arm64": "cargo-cp-artifact -nc index.aarch64.node -- cargo build --target=aarch64-apple-darwin --message-format=json-render-diagnostics",
+    "build-release-arm64": "npm run build-cargo-arm64 -- --release",
+    "build-debug-arm64": "npm run build-cargo-arm64 --",
+    "install-cargo": "npm run build-release-gnu && npm run build-release-darwin && npm run build-release-win && npm run build-release-arm64",
     "test": "cargo test",
     "postinstall": "node ./postinstall.js"
   },
   "author": "zellathor Angel Granadillo ",
   "license": "ISC",
   "devDependencies": {
-    "cargo-cp-artifact": "^0.1"
+    "cargo-cp-artifact": "^0.1.9"
   }
 }
